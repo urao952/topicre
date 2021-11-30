@@ -47,9 +47,6 @@ function shuffle(arr) {
 }
 
 btns.addEventListener('click', () => {
-    let childElementCount = searchBox.childElementCount;
-    formCreate(childElementCount);
-    console.log(extractionArray);
     if (startbtn.classList.contains('hide') == true) {
         startbtn.classList.remove("hide");
         stopbtn.classList.add("hide");
@@ -62,23 +59,26 @@ btns.addEventListener('click', () => {
         for (let i = 0; i < 5; i++) {
             extraction(i, shuffledChoiceColors);
         }
+        for (let i = 0; i < 5; i++) {
+            extractionArray.shift();
+        }
     } else if (extractionArray.length < 5 && extractionArray.length > 0) {
         for (let i = 0; i < extractionArray.length; i++) {
             extraction(i, shuffledChoiceColors);
         }
+        for (let i = 0; i < extractionArray.length; i++) {
+            extractionArray.shift();
+        }
     }
-    for (let i = 0; i < 5; i++) {
-        extractionArray.shift();
-    }
+
+
 });
 
 function extraction(i, s) {
-    // setTimeout(() => {
-    colorArray[i] = s[i];
+        colorArray[i] = s[i];
     bgColors[i].style.setProperty("--color", colorArray[i]);
     if (extractionArray.length >= 8) {//取り出した文字の文字数分岐
-        // const shuffledChoiceWords = shuffle(extractionArray);
-        let stringWord = extractionArray[i].substr(0, 7);
+        let stringWord = extractionArray[i].substring(0, 7);
         let outputWord = stringWord + "…";
         npWords[i].innerHTML = outputWord;
     } else {
@@ -92,17 +92,14 @@ function extraction(i, s) {
     setTimeout(() => {
         notePads[i].classList.remove(npExit[i]);
     }, 700 + 80 * i);
-    // }, 800);
 }
 
 const Search1 = document.getElementById("form1");
 const Search2 = document.getElementById("form2");
 const Search3 = document.getElementById("form3");
 
-// Search1.addEventListener('touchstart', () => {
-// })
 
-function formCreate(e) {
+function formCreate(e, f1,f2,f3) {
     const form1 = document.createElement("form");
     form1.className = 'search_form';
     form1.className = 'search_' + e;
@@ -115,10 +112,10 @@ function formCreate(e) {
     const input1 = document.createElement("input");
     input1.id = 'search';
     input1.setAttribute("type", "text");
-    input1.setAttribute("name", "search_box");
+    input1.setAttribute("name", "q");
     input1.setAttribute("size", "24");
     input1.setAttribute("maxlength", "255");
-    input1.setAttribute("value", "");
+    input1.setAttribute("value", f1+" "+f2+" "+f3);
     searchFormBox.appendChild(input1);
 
     const input2 = document.createElement("input");
@@ -127,6 +124,13 @@ function formCreate(e) {
     input2.setAttribute("name", "btng");
     input2.setAttribute("value", "検索");
     searchFormBox.appendChild(input2);
+
+    const input3 = document.createElement("input");
+    input3.className = 'search_submit';
+    input3.setAttribute("type", "hidden");
+    input3.setAttribute("name", "hl");
+    input3.setAttribute("value", "ja");
+    searchFormBox.appendChild(input3);
 }
 
 window.onload = function () {
@@ -147,6 +151,3 @@ window.onload = function () {
     }
     window.addEventListener('scroll', Animation);
 }
-
-  //問題
-  //formCreateできたはいいが検索に入力ワードが反映されない

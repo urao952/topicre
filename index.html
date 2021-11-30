@@ -21,12 +21,12 @@
                         <p class="home-text">ホーム</p>
                     </div>
                 </a>
-                <div class="home">
+                <a href="#" class="home">
                     <div class="clear_button">
                         <i class="fas fa-trash-alt fa-2x fa-fw my-orange e_icon"></i>
                         <p class="clear-text">クリア</p>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </header>
@@ -73,7 +73,6 @@
     </main>
     <footer>
     </footer>
-    <script src="script.js"></script>
     <script>
         SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
         const recognition = new SpeechRecognition();
@@ -81,7 +80,6 @@
         const stop_btn = document.querySelector('#stopbtn');
         const results_div = document.querySelector('#result');
         const results_div2 = document.querySelector('#result2');
-        // const extract_btn = document.querySelector('#extractbtn');
 
         let recognitionHouse;
         let shiftCount = 0;
@@ -91,6 +89,7 @@
         recognition.continuous = true;
 
         let finalTranscript = '';
+        let r = /[一-龠]+|[ぁ-ん]+|[ァ-ヴー]+|[a-zA-Z0-9]+|[ａ-ｚＡ-Ｚ０-９]+/g;
 
         recognition.onresult = (event) => {
             let interimTranscript = '';
@@ -103,32 +102,27 @@
                 }
             }
             recognitionHouse = finalTranscript + interimTranscript;
-            r = /[一-龠]+|[ぁ-ん]+|[ァ-ヴー]+|[a-zA-Z0-9]+|[ａ-ｚＡ-Ｚ０-９]+/g;
-            // console.log(event.results[0][0].transcript);
-            // console.log(event.results);
         }
         start_btn.onclick = () => {
-            // console.log(extract_btn);
-            // console.log(recognitionHouse);
             recognition.start();
             function countUp() {
                 let RDI = recognitionHouse;
                 let resultL = RDI.match(r);
-                console.log(resultL);
+                let search1=resultL[getRandomInt(0,resultL.length)];
+                let search2=resultL[getRandomInt(0,resultL.length)];
+                let search3=resultL[getRandomInt(0,resultL.length)];
+                formCreate(searchBox.childElementCount, search1,search2,search3);
                 resultL.forEach(word => {
                     extractionArray = resultL.concat();
                     const li = document.createElement('li');
                     li.innerHTML = word;
                     results_div.appendChild(li);
                     let timerID;
-                    timerID = setTimeout(resultL, 3000);
                 });
                 for (let i = 0; i < shiftCount; i++) {
-                    console.log(resultL);
-                    console.log(extractionArray);
                     extractionArray.shift();
                 }
-                //ランダム色と付箋表示
+                //ランダム色と付箋表示
                 const shuffledChoiceColors = shuffle(colors);
                 if (extractionArray.length >= 5) {
                     for (let i = 0; i < 5; i++) {
@@ -141,18 +135,21 @@
                         shiftCount += 1;
                     }
                 }
-                // console.log(shiftCount);
             }
             setInterval(countUp, 1500);
-            // document.addEventListener('DOMContentLoaded', function () {
-            // })
         }
         stop_btn.onclick = () => {
 
-            clearInterval(intervalId);
             recognition.stop();
         }
+
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min) + min);
+        }
     </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
