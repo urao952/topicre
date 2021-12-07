@@ -104,7 +104,7 @@ function formCreate(e, f1,f2,f3) {
     form1.className = 'search_form';
     form1.className = 'search_' + e;
     form1.setAttribute("method", "get");
-    form1.setAttribute("action", "http://www.google.co.jp/search");
+    form1.setAttribute("action", "https://www.google.co.jp/search");
     form1.setAttribute("target", "_blank");
     searchBox.appendChild(form1);
 
