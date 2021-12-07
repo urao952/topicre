@@ -2,6 +2,9 @@
 
 const search = document.getElementById('search');
 const btns = document.querySelector('#btns');
+const genreSelect=document.getElementById('genreSelect_btn');
+const wordClear=document.getElementById('wordClear_btn');
+const searchClear=document.getElementById('searchClear_btn');
 const searchBox = document.getElementById('search_box');
 const startbtn = document.querySelector('#startbtn');
 const stopbtn = document.querySelector('#stopbtn');
@@ -151,3 +154,11 @@ window.onload = function () {
     }
     window.addEventListener('scroll', Animation);
 }
+
+searchClear.addEventListener('click', () => {
+    searchBox.innerHTML=null;
+});
+// genreSelect
+// const wordClear=document.getElementById('wordClear_btn');
+
+//言葉クリアしたい＝単語がどこに格納されているかを突き止める

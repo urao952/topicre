@@ -50,7 +50,7 @@ h2{
     padding-top: 10px;
 }
 
-.home_button,.clear_button{
+.clear_button{
     position: relative;
     background-color: #f0f8ff;
     width: 60px;
@@ -62,7 +62,16 @@ h2{
     color: #f0f8ff;
     position: absolute;
     top: 38px;
-    left: 7px;
+    left: -9px;
+    right: -10px;
+}
+
+.clear-text1,.clear-text2{
+    color: #f0f8ff;
+    position: absolute;
+    top: 38px;
+    left: -10px;
+    right: -10px;
 }
 
 .home_button > .fa-home,
@@ -70,6 +79,18 @@ h2{
     position: absolute;
     top: 5px;
     left: 10px;
+}
+
+.genre_img{
+    width: 60%;
+    height: auto;
+    padding-top: 5px;
+}
+
+.clear_img{
+    width: 40%;
+    height: auto;
+    padding-top: 3px;
 }
 
 .collection{
