@@ -97,6 +97,10 @@ form > input{
     background-color: #F98500;
 }
 
+#search_box{
+    padding-bottom: 100px;
+}
+
 #search_box>form{
     text-align: left;
     padding-left: 10px;
