@@ -13,6 +13,18 @@
 
 <body>
     <header>
+        <div class="hamburger-menu">
+            <div class="menu-content">
+                <ul>
+                    <li>
+                        <a href="about.html">ABOUT -自分-</a>
+                    </li>
+                    <li>
+                        <a href="https://okusen.site/">BLOG -ブログ-</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
         <div class="header">
             <div class="buttons">
                 <button id="genreSelect_btn">
@@ -38,8 +50,6 @@
     </header>
     <main class="main">
         <h2>ホーム</h2>
-        <div class="hide" id="result"></div>
-        <ul class="hide" id="result2"></ul>
         <div id="btns" class="collection">
             <img id="startbtn" class="startbtn" src="images/start_recording.png" alt="">
             <img id="stopbtn" class="stopbtn hide" src="images/during_recording2.png" alt="">
@@ -84,8 +94,6 @@
         const recognition = new SpeechRecognition();
         const start_btn = document.querySelector('#startbtn');
         const stop_btn = document.querySelector('#stopbtn');
-        const results_div = document.querySelector('#result');
-        const results_div2 = document.querySelector('#result2');
 
         let recognitionHouse;
         let shiftCount = 0;
@@ -112,17 +120,13 @@
         start_btn.onclick = () => {
             recognition.start();
             function countUp() {
-                let RDI = recognitionHouse;
-                let resultL = RDI.match(r);
+                let resultL = recognitionHouse.match(r);
                 let search1=resultL[getRandomInt(0,resultL.length)];
                 let search2=resultL[getRandomInt(0,resultL.length)];
                 let search3=resultL[getRandomInt(0,resultL.length)];
                 formCreate(searchBox.childElementCount, search1,search2,search3);
                 resultL.forEach(word => {
                     extractionArray = resultL.concat();
-                    const li = document.createElement('li');
-                    li.innerHTML = word;
-                    results_div.appendChild(li);
                     let timerID;
                 });
                 for (let i = 0; i < shiftCount; i++) {

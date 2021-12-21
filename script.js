@@ -158,7 +158,13 @@ window.onload = function () {
 searchClear.addEventListener('click', () => {
     searchBox.innerHTML=null;
 });
-// genreSelect
-// const wordClear=document.getElementById('wordClear_btn');
+wordClear.addEventListener('click', () => {
+    finalTranscript ="";//微妙
+});
 
-//言葉クリアしたい＝単語がどこに格納されているかを突き止める
+const hamburgerMenu = document.querySelector('.hamburger-menu');
+//ジャンル
+genreSelect.addEventListener('click', function () {
+    hamburgerMenu.classList.add('menu-content_animation');
+});
+//ハンバーガーメニュー参考にジャンル下からスライドイン

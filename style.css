@@ -341,3 +341,40 @@ margin-left: 5px;
     text-align: center;
     color: #A12568;
   }
+
+  /* ///////////////////////ジャンルボタン/////////////////////// */
+  .menu-content {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 100%;
+    left: 0;
+    /*topの値を変更してメニューを画面外へ*/
+    z-index: 80;
+    background-color: #F98500;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+    /*アニメーション設定*/
+  }
+  #menu-btn-check:checked ~ .menu-content {
+    left: 0;
+    /*メニューを画面内へ*/
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+  /* .menu-content_animation {
+    animation: genre .3s cubic-bezier(0.25, 1, 0.5, 1) 1 forwards;
+  } */
+
+/* //////////////////////// 
+ @keyframes genre {
+    0% {
+    opacity: 0;/*透明
+    top: translateY(0);
+    }
+    100% {
+    opacity: 1;
+    top: translateY(200px);
+    }
+} */
