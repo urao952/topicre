@@ -4,6 +4,7 @@ const search = document.getElementById('search');
 const btns = document.querySelector('#btns');
 const genreSelect=document.getElementById('genreSelect_btn');
 const wordClear=document.getElementById('wordClear_btn');
+const menuContent = document.querySelector('.menu-content');
 const searchClear=document.getElementById('searchClear_btn');
 const searchBox = document.getElementById('search_box');
 const startbtn = document.querySelector('#startbtn');
@@ -155,16 +156,17 @@ window.onload = function () {
     window.addEventListener('scroll', Animation);
 }
 
+//検索クリア
 searchClear.addEventListener('click', () => {
     searchBox.innerHTML=null;
 });
+//言葉クリア
 wordClear.addEventListener('click', () => {
     finalTranscript ="";//微妙
 });
 
-const hamburgerMenu = document.querySelector('.hamburger-menu');
 //ジャンル
 genreSelect.addEventListener('click', function () {
-    hamburgerMenu.classList.add('menu-content_animation');
+    menuContent.classList.toggle('menu-content_animation');
 });
-//ハンバーガーメニュー参考にジャンル下からスライドイン
+//現状スクロールできない

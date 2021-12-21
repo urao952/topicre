@@ -357,24 +357,29 @@ margin-left: 5px;
     transition: all 0.2s;
     /*アニメーション設定*/
   }
-  #menu-btn-check:checked ~ .menu-content {
-    left: 0;
-    /*メニューを画面内へ*/
-    -webkit-transition: 0.3s;
-    transition: 0.3s;
+  .menu-content_animation {
+    top: 0%;
   }
-  /* .menu-content_animation {
-    animation: genre .3s cubic-bezier(0.25, 1, 0.5, 1) 1 forwards;
-  } */
-
-/* //////////////////////// 
- @keyframes genre {
-    0% {
-    opacity: 0;/*透明
-    top: translateY(0);
-    }
-    100% {
-    opacity: 1;
-    top: translateY(200px);
-    }
-} */
+  .menu-content li{
+    position: relative;
+    padding: 0.5em 0.7em;
+    margin: 2em 0;
+    background: #f0f8ff;
+    color: #F98500;
+    font-weight: bold;
+}
+.menu-content li:after {
+    position: absolute;
+    content: '';
+    top: 100%;
+    left: 30px;
+    border: 15px solid transparent;
+    border-top: 15px solid #f0f8ff;
+    width: 0;
+    height: 0;
+}
+.menu-content button {
+    width: 60%;
+    margin: 0 45px; 
+    padding: 10px;
+}
