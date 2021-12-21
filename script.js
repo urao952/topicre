@@ -169,4 +169,4 @@ wordClear.addEventListener('click', () => {
 genreSelect.addEventListener('click', function () {
     menuContent.classList.toggle('menu-content_animation');
 });
-//現状スクロールできない
+//問題＝スクロールできない
