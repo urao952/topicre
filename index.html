@@ -16,10 +16,10 @@
         <div class="hamburger-menu">
             <div class="menu-content">
                 <ul>
-                    <button><li>スポーツ</li></button>
-                    <button><li>エンタメ</li></button>
-                    <button><li>ゲーム</li></button>
-                    <button><li>ウィルス</li></button>
+                        <li class="genre_sport genreBTNs">スポーツ</li>
+                        <li class="genre_era genreBTNs">元号</li>
+                        <li class="genre_constellation genreBTNs">星座</li>
+                        <li class="genre_SDGs genreBTNs">SDGs</li>
                 </ul>
             </div>
         </div>
@@ -119,10 +119,16 @@
             recognition.start();
             function countUp() {
                 let resultL = recognitionHouse.match(r);
-                let search1=resultL[getRandomInt(0,resultL.length)];
-                let search2=resultL[getRandomInt(0,resultL.length)];
-                let search3=resultL[getRandomInt(0,resultL.length)];
-                formCreate(searchBox.childElementCount, search1,search2,search3);
+                let search1 = resultL[getRandomInt(resultL.length)];
+                let search2 = resultL[getRandomInt(resultL.length)];
+                let search3;
+                console.log(appArray)
+                if (genreApp == false) {
+                    search3 = resultL[getRandomInt(resultL.length)];
+                } else {
+                    search3 = appArray[getRandomInt(appArray.length)]
+                }
+                formCreate(searchBox.childElementCount, search1, search2, search3);
                 resultL.forEach(word => {
                     extractionArray = resultL.concat();
                     let timerID;
@@ -151,10 +157,14 @@
             recognition.stop();
         }
 
-        function getRandomInt(min, max) {
-            min = Math.ceil(min);
-            max = Math.floor(max);
-            return Math.floor(Math.random() * (max - min) + min);
+        function getRandomInt(n) {
+            let renban = [...Array(n)].map((_, i) => i);
+            for (let i = 0; i < renban.length - 1; i++) {
+                let r = Math.floor(Math.random() * (i + 1));
+                let tmp = renban[i];
+                renban[i] = renban[r];
+                renban[r] = tmp;
+            } return renban[Math.floor(Math.random() * n)];
         }
     </script>
     <script src="script.js"></script>

@@ -360,14 +360,21 @@ margin-left: 5px;
   .menu-content_animation {
     top: 0%;
   }
-  .menu-content li{
+  .menu-content ul{
+      margin: 2em;
+  }
+  
+    .menu-content li{
     position: relative;
-    padding: 0.5em 0.7em;
-    margin: 2em 0;
+    padding: 2em 0.7em;
+    margin: 3em 0;
     background: #f0f8ff;
     color: #F98500;
     font-weight: bold;
-}
+  }
+  .menu-content .genreSelecting {
+    background: #c06600 ;
+  }
 .menu-content li:after {
     position: absolute;
     content: '';
@@ -377,6 +384,9 @@ margin-left: 5px;
     border-top: 15px solid #f0f8ff;
     width: 0;
     height: 0;
+}
+.menu-content .genreSelecting:after{
+    border-top: 15px solid #c06600;
 }
 .menu-content button {
     width: 60%;
