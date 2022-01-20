@@ -16,6 +16,10 @@ ul{
     list-style-type: none;
 }
 
+h2{
+    color: #164583;
+}
+
 .my-blue {color: #164583}
 .my-orange {color: #F98500}
 .my-aliceblue{color:#f0f8ff}
@@ -363,7 +367,7 @@ margin-left: 5px;
   .menu-content ul{
       margin: 2em;
   }
-  
+
     .menu-content li{
     position: relative;
     padding: 2em 0.7em;
@@ -390,6 +394,6 @@ margin-left: 5px;
 }
 .menu-content button {
     width: 60%;
-    margin: 0 45px; 
+    margin: 0 45px;
     padding: 10px;
 }
